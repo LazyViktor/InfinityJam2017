@@ -22,12 +22,22 @@ public class Bullet : MonoBehaviour {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update() {
         bulletMove();
-        rangeUpdate();
-	}
+        
+        
+
+    }
+    void OnTriggerEnter2D(Collider2D Other)
+    {
+        
+
+
+
+        
+    }
 
 
     void bulletMove()
@@ -75,10 +85,6 @@ public class Bullet : MonoBehaviour {
         rb.velocity += Velocity*speed*0.9f;
     }
 
-    void rangeUpdate()
-    {
-
-
-    }
+ 
 }
 
