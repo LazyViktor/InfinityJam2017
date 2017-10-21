@@ -5,9 +5,11 @@ using UnityEngine;
 public class Player : MonoBehaviour {
 
     public int health;
-    public float speed ;
+    public float speed;
     public int direction = 0;
-
+    public GameObject Bullet;
+    public int ammo;
+    public int delay;
     private Rigidbody2D rb;
     private Vector2 Velocity = new Vector2(0, 0);
     private bool isWalking = false;
@@ -26,8 +28,27 @@ public class Player : MonoBehaviour {
 	void Update ()
     {
         movement();
+        shoot();
         animationupdate();
+        delay--;
 	}
+
+    void shoot()
+    {
+        if(ammo > 0 && (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.LeftArrow)))
+        {
+            if (delay <= 0)
+            {
+                GameObject newBullet = Instantiate(Bullet) as GameObject;
+                newBullet.transform.position = transform.position;
+                ammo--;
+                delay = 20;
+
+            }
+           
+        }
+
+    }
 
     void animationupdate()
     {
@@ -56,7 +77,7 @@ public class Player : MonoBehaviour {
             Debug.Log("is walking");
             //transform.position += new Vector3(1*speed, 0, 0);
         }
-
+        
         if (Input.GetKey(KeyCode.S))
         {
             Velocity += new Vector2(0, -1);
