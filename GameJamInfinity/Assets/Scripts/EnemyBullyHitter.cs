@@ -24,7 +24,8 @@ public class EnemyBullyHitter : MonoBehaviour {
 
     // Use this for initialization
     void Start()
-    {   
+    {
+        lastAttackTime = 1f;
         rb = GetComponent<Rigidbody2D>();
      //   anim = GetComponent<Animator>();
     }
@@ -65,8 +66,11 @@ public class EnemyBullyHitter : MonoBehaviour {
         float distanceToTarget = Vector3.Distance(transform.position, target.playerPosition);
         // AttackRange Test
         if(distanceToTarget < attackRange)
-        {   
+        {
             // CoolDown Test
+
+           // Debug.Log(Time.time);
+
             if(lastAttackTime + meeleAttackCooldown < Time.time)
             {
                 lastAttackTime = Time.time;
