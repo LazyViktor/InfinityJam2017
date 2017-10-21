@@ -91,7 +91,11 @@ public class EnemyBullyHitter : MonoBehaviour {
 
 
 
-     if (Other.gameObject.GetComponent<Bullet>()) TakeDamage();
+        if (Other.gameObject.GetComponent<Bullet>()) {
+            TakeDamage();
+            Destroy(Other.gameObject);
+        }
+        
     }
 
     void Movement()
