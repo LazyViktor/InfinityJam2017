@@ -82,7 +82,7 @@ public class EnemyBullyHitter : MonoBehaviour {
 
     void Movement()
     {
-        Velocity = new Vector2(0, 0);
+        
 
         transform.position += speed * Chase();
     }

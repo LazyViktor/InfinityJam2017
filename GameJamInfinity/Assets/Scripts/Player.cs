@@ -33,6 +33,7 @@ public class Player : MonoBehaviour {
         shoot();
         animationupdate();
         delay--;
+        playerPosition = transform.position;
 	}
 
     void shoot()
