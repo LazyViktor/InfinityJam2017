@@ -99,12 +99,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89ae7203c87ebd944aa2d452303a7728, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
+  health: 3
   speed: 0.05
   direction: 0
   target: {fileID: 0}
   meeleDamage: 1
-  meeleAttackCooldown: 50
+  meeleAttackCooldown: 3
   attackRange: 3
 --- !u!212 &212125416160811028
 SpriteRenderer:

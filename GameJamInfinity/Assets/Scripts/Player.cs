@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour {
 
@@ -66,7 +67,11 @@ public class Player : MonoBehaviour {
 
         if(health < 1)
         {
+            
             Debug.Log("Player dead!");
+            Destroy(this.gameObject);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
         }
     }
 

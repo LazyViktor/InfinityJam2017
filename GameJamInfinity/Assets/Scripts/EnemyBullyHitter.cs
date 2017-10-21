@@ -24,7 +24,8 @@ public class EnemyBullyHitter : MonoBehaviour {
 
     // Use this for initialization
     void Start()
-    {   
+    {
+        lastAttackTime = 1f;
         rb = GetComponent<Rigidbody2D>();
      //   anim = GetComponent<Animator>();
     }
@@ -36,6 +37,7 @@ public class EnemyBullyHitter : MonoBehaviour {
         
         Movement();
         MeeleAttack();
+        
      //   animationupdate();
     }
 
@@ -47,13 +49,15 @@ public class EnemyBullyHitter : MonoBehaviour {
     //}
 
     // Use ???.SendMessage("TakeDamage", int number); to deal damage to enemy.
-    void TakeDamage(int damage)
+   public void TakeDamage()
     {
-        health -= damage;
+        health -= 1;
 
         if (health < 1)
         {
             Debug.Log("Enemy dead!");
+            Destroy(this.gameObject);
+
         }
     }
 
@@ -62,8 +66,11 @@ public class EnemyBullyHitter : MonoBehaviour {
         float distanceToTarget = Vector3.Distance(transform.position, target.playerPosition);
         // AttackRange Test
         if(distanceToTarget < attackRange)
-        {   
+        {
             // CoolDown Test
+
+           // Debug.Log(Time.time);
+
             if(lastAttackTime + meeleAttackCooldown < Time.time)
             {
                 lastAttackTime = Time.time;
@@ -78,6 +85,21 @@ public class EnemyBullyHitter : MonoBehaviour {
         Vector3 targetDir = target.playerPosition - transform.position;
 
         return targetDir;
+    }
+
+
+
+    void OnTriggerEnter2D(Collider2D Other)
+    {
+        Debug.Log("isTriggerd");
+
+
+
+        if (Other.gameObject.GetComponent<Bullet>()) {
+            TakeDamage();
+            Destroy(Other.gameObject);
+        }
+        
     }
 
     void Movement()
