@@ -5,8 +5,9 @@ using UnityEngine;
 public class Player : MonoBehaviour {
 
     public int health;
-    public float speed ;
+    public float speed;
     public int direction = 0;
+    public Vector3 playerPosition;
 
     private Rigidbody2D rb;
     private Vector2 Velocity = new Vector2(0, 0);
@@ -25,6 +26,7 @@ public class Player : MonoBehaviour {
 	void Update () {
         movement();
         animationupdate();
+        playerPosition = transform.position;
 	}
 
     void animationupdate()
@@ -32,6 +34,16 @@ public class Player : MonoBehaviour {
         anim.SetFloat("XVelocity", Velocity.x);
         anim.SetFloat("YVelocity", Velocity.y);
        
+    }
+
+    void TakeDamage(int damage)
+    {
+        health -= damage;
+
+        if(health < 1)
+        {
+            Debug.Log("Player dead!");
+        }
     }
 
     void movement()
