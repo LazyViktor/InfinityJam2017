@@ -9,6 +9,7 @@ public class Player : MonoBehaviour {
     public int direction = 0;
 
     private Rigidbody2D rb;
+    private Vector2 Velocity = new Vector2(0, 0);
 
     private Animator anim;
 	// Use this for initialization
@@ -28,46 +29,39 @@ public class Player : MonoBehaviour {
 
     void animationupdate()
     {
-
-
-
-
-
-
-
-
-
-        if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.W) | Input.GetKey(KeyCode.S) | Input.GetKey(KeyCode.D))
-        {
-            anim.SetBool("walk", true);
-        }
-        else
-        {
-            anim.SetBool("walk", false);
-        }
-
+        anim.SetFloat("XVelocity", Velocity.x);
+        anim.SetFloat("YVelocity", Velocity.y);
+       
     }
 
     void movement()
     {
+        Velocity = new Vector2(0, 0);
+
         if (Input.GetKey(KeyCode.A))
         {
-            transform.position += new Vector3 (-1*speed, 0, 0);
+            Velocity += new Vector2(-1, 0);
+            //transform.position += new Vector3 (-1*speed, 0, 0);
         }
 
         if (Input.GetKey(KeyCode.D))
         {
-            transform.position += new Vector3(1*speed, 0, 0);
+            Velocity += new Vector2(1, 0);
+            //transform.position += new Vector3(1*speed, 0, 0);
         }
 
         if (Input.GetKey(KeyCode.S))
         {
-            transform.position += new Vector3(0,-1*speed, 0);
+            Velocity += new Vector2(0, -1);
+            //transform.position += new Vector3(0,-1*speed, 0);
         }
 
         if (Input.GetKey(KeyCode.W))
         {
-            transform.position += new Vector3(0, 1*speed, 0);
+            Velocity += new Vector2(0, 1);
+            //transform.position += new Vector3(0, 1*speed, 0);
         }
+
+        transform.position += speed * new Vector3(Velocity.x,Velocity.y);
     }
 }
