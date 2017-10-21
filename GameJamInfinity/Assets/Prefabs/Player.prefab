@@ -20,9 +20,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4171735185571046}
   - component: {fileID: 212330388696539098}
-  - component: {fileID: 114087057471985290}
   - component: {fileID: 95503094158973404}
-  - component: {fileID: 114755043149909714}
+  - component: {fileID: 114571774246101864}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -60,7 +59,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114087057471985290
+--- !u!114 &114571774246101864
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -74,17 +73,10 @@ MonoBehaviour:
   health: 0
   speed: 0.1
   direction: 0
---- !u!114 &114755043149909714
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1109732536676334}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  playerPosition: {x: 0, y: 0, z: 0}
+  Bullet: {fileID: 1699288161932084, guid: 2d68e3c48ef29cb45bec30c9ab83f57b, type: 2}
+  ammo: 5
+  delay: 20
 --- !u!212 &212330388696539098
 SpriteRenderer:
   m_ObjectHideFlags: 1

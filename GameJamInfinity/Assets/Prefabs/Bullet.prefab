@@ -75,7 +75,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 0
   speed: 2.8
-  trans: {fileID: 4005174529618338, guid: 8a96804b34d76bf418f542e15c21aaf6, type: 2}
+  trans: {fileID: 4171735185571046, guid: 8a96804b34d76bf418f542e15c21aaf6, type: 2}
 --- !u!212 &212910972150604810
 SpriteRenderer:
   m_ObjectHideFlags: 1
