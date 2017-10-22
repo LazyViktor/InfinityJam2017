@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -24,14 +25,17 @@ public class Bullet : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update() {
+    void Update()
+    {
         bulletMove();
-        
-        
-
+        UpdateAnimation();
     }
 
-
+    private void UpdateAnimation()
+    {
+        anim.SetFloat("XVelocity", Velocity.x);
+        anim.SetFloat("YVelocity", Velocity.y);
+    }
 
     void bulletMove()
     {
@@ -70,11 +74,7 @@ public class Bullet : MonoBehaviour {
             Debug.Log("is shooting");
            
         }
-
-   
-
-
-      
+        
         rb.velocity += Velocity*speed*0.9f;
     }
 
