@@ -237,6 +237,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114571774246101864, guid: 8a96804b34d76bf418f542e15c21aaf6,
+        type: 2}
+      propertyPath: damage
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8a96804b34d76bf418f542e15c21aaf6, type: 2}
   m_IsPrefabParent: 0
@@ -371,8 +376,14 @@ Prefab:
     - target: {fileID: 114960983607685388, guid: 519cdd4b1081fa24ead4c389c8637ed6,
         type: 2}
       propertyPath: health
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 114960983607685388, guid: 519cdd4b1081fa24ead4c389c8637ed6,
+        type: 2}
+      propertyPath: DroppedBullet
+      value: 
+      objectReference: {fileID: 1614163687417764, guid: 2edfecf1147e0c64188acf74ec0f5456,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 519cdd4b1081fa24ead4c389c8637ed6, type: 2}
   m_IsPrefabParent: 0

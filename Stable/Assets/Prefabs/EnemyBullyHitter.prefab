@@ -148,7 +148,7 @@ MonoBehaviour:
   direction: 0
   target: {fileID: 0}
   meeleDamage: 1
-  meeleAttackCooldown: 3
+  meeleAttackCooldown: 2
   attackRange: 3
 --- !u!212 &212029650568227778
 SpriteRenderer:

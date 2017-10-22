@@ -9,6 +9,7 @@ public class Player : MonoBehaviour {
     public float speed;
     public int direction = 0;
     public Vector3 playerPosition;
+    public int maxammo;
 
     public GameObject Bullet;
     public int ammo;
@@ -143,7 +144,7 @@ public class Player : MonoBehaviour {
 
     void speedUp()
     {
-        speed += 0.05f;
+        speed += 0.02f;
 
     }
 
@@ -152,5 +153,12 @@ public class Player : MonoBehaviour {
         damage += 0.5f;
     }
 
+    public void getBullet()
+    {
+        ammo += 1;
+
+
+        if (ammo > maxammo) ammo = 5;
+    }
 
 }
