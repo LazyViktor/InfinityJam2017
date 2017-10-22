@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyBullyHitter : MonoBehaviour {
 
-    public int health;
+    public float health;
     public float speed;
     public int direction = 0;
 
@@ -16,6 +16,7 @@ public class EnemyBullyHitter : MonoBehaviour {
     public float meeleAttackCooldown;
     private float lastAttackTime;
     public float attackRange;
+    public GameObject DroppedBullet;
     
     private Rigidbody2D rb;
     private Vector2 Velocity = new Vector2(0, 0);
@@ -52,7 +53,7 @@ public class EnemyBullyHitter : MonoBehaviour {
     // Use ???.SendMessage("TakeDamage", int number); to deal damage to enemy.
     public void TakeDamage()
     {
-        health -= 1;
+        health -= target.damage;
 
         if (health < 1)
         {
@@ -85,20 +86,28 @@ public class EnemyBullyHitter : MonoBehaviour {
     {
         Vector3 targetDir = target.playerPosition - transform.position;
 
-        return targetDir;
+        return targetDir.normalized;
     }
 
 
 
     void OnTriggerEnter2D(Collider2D Other)
     {
+        
         Debug.Log("isTriggerd");
 
 
 
         if (Other.gameObject.GetComponent<Bullet>()) {
+
             TakeDamage();
+
             Destroy(Other.gameObject);
+
+            GameObject dropBullet = Instantiate(DroppedBullet) as GameObject;
+            dropBullet.transform.position = transform.position;
+
+            
         }
         
     }

@@ -81,6 +81,7 @@ public class Bullet : MonoBehaviour {
         rb.velocity += Velocity*speed*0.9f;
     }
 
+    
  
 }
 

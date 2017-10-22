@@ -16,6 +16,8 @@ public class Player : MonoBehaviour {
     private Rigidbody2D rb;
     private Vector2 Velocity = new Vector2(0, 0);
     private bool isWalking = false;
+    public float damage = 1;
+
 
     private Animator anim;
 	// Use this for initialization
@@ -119,5 +121,36 @@ public class Player : MonoBehaviour {
         }
 
         transform.position += speed * new Vector3(Velocity.x,Velocity.y);
+    }
+
+
+    void OnTriggerEnter2D(Collider2D Other)
+    {
+        Debug.Log("SpeedUp");
+
+
+
+        if (Other.gameObject.GetComponent<SpeedUp>())
+        {
+            SpeedUp();
+            Destroy(Other.gameObject);
+        }
+
+        else if (Other.gameObject.GetComponent<DamageUp>()) {
+
+            DamageUp();
+            Destroy(Other.gameObject);
+
+        }
+    }
+
+    void SpeedUp()
+    {
+        speed += 0.03f;
+    }
+
+    void DamageUp()
+    {
+        damage += 0.5f;
     }
 }
