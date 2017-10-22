@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyBullyHitter : MonoBehaviour {
 
-    public int health;
+    public float health;
     public float speed;
     public int direction = 0;
 
@@ -51,7 +51,7 @@ public class EnemyBullyHitter : MonoBehaviour {
     // Use ???.SendMessage("TakeDamage", int number); to deal damage to enemy.
     public void TakeDamage()
     {
-        health -= 1;
+        health -= target.damage;
 
         if (health < 1)
         {
