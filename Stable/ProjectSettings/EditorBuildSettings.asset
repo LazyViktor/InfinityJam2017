@@ -4,4 +4,10 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/_scenes/Lara.unity
+    guid: d96f372b5abe3e6438b291c1424cc90d
+  - enabled: 1
+    path: Assets/_scenes/Viktor.unity
+    guid: 2355f0fe7dc15ca438ab2afa6ae933f9
