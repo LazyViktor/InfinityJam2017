@@ -120,4 +120,7 @@ public class Player : MonoBehaviour {
 
         transform.position += speed * new Vector3(Velocity.x,Velocity.y);
     }
+
+
+
 }
