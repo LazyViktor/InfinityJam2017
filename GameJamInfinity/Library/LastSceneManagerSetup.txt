@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/_scenes/Lara.unity
+- path: Assets/_scenes/Viktor.unity
   isLoaded: 1
   isActive: 1
