@@ -9,6 +9,7 @@ public class Player : MonoBehaviour {
     public float speed;
     public int direction = 0;
     public Vector3 playerPosition;
+    public int maxammo;
 
     public GameObject Bullet;
     public int ammo;
@@ -16,7 +17,7 @@ public class Player : MonoBehaviour {
     private Rigidbody2D rb;
     private Vector2 Velocity = new Vector2(0, 0);
     private bool isWalking = false;
-
+    public float damage;
     private Animator anim;
 	// Use this for initialization
 	void Start () {
@@ -120,4 +121,44 @@ public class Player : MonoBehaviour {
 
         transform.position += speed * new Vector3(Velocity.x,Velocity.y);
     }
+
+
+    void OnTriggerEnter2D(Collider2D Other)
+    {
+        Debug.Log("PowerUP");
+
+
+
+        if (Other.gameObject.GetComponent<SpeedUp>())
+        {
+            speedUp();
+            Destroy(Other.gameObject);
+        }
+        else if (Other.gameObject.GetComponent<DamageUp>())
+        {
+            damageUp();
+            Destroy(Other.gameObject);
+        }
+    }
+
+
+    void speedUp()
+    {
+        speed += 0.02f;
+
+    }
+
+    void damageUp()
+    {
+        damage += 0.5f;
+    }
+
+    public void getBullet()
+    {
+        ammo += 1;
+
+
+        if (ammo > maxammo) ammo = 5;
+    }
+
 }
