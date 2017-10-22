@@ -27,8 +27,11 @@ public class Bullet : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        bulletMove();
-        UpdateAnimation();
+        if (Time.timeScale > 0)
+        {
+            bulletMove();
+            UpdateAnimation();
+        }
     }
 
     private void UpdateAnimation()

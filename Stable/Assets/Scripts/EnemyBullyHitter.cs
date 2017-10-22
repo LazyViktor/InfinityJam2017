@@ -34,11 +34,12 @@ public class EnemyBullyHitter : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        
-        Movement();
-        MeeleAttack();
-        
-        animationupdate();
+        if (Time.timeScale > 0)
+        {
+            Movement();
+            MeeleAttack();
+            animationupdate();
+        }
     }
 
     void animationupdate()

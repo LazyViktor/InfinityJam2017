@@ -30,11 +30,15 @@ public class Player : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        movement();
-        shoot();
-        animationupdate();
-        delay--;
-        playerPosition = transform.position;
+        if (Time.timeScale > 0)
+        {
+            movement();
+            shoot();
+            animationupdate();
+            delay--;
+            playerPosition = transform.position;
+        }
+
 	}
 
     void shoot()
