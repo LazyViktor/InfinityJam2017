@@ -20,14 +20,14 @@ public class EnemyBullyHitter : MonoBehaviour {
     private Rigidbody2D rb;
     private Vector2 Velocity = new Vector2(0, 0);
 
-    //private Animator anim;
+    private Animator anim;
 
     // Use this for initialization
     void Start()
     {
         lastAttackTime = 1f;
         rb = GetComponent<Rigidbody2D>();
-     //   anim = GetComponent<Animator>();
+        anim = GetComponent<Animator>();
     }
     
 
@@ -38,18 +38,18 @@ public class EnemyBullyHitter : MonoBehaviour {
         Movement();
         MeeleAttack();
         
-     //   animationupdate();
+        animationupdate();
     }
 
-    //void animationupdate()
-    //{
-    //    anim.SetFloat("XVelocity", Velocity.x);
-    //    anim.SetFloat("YVelocity", Velocity.y);
+    void animationupdate()
+    {
+        anim.SetFloat("XVelocity", Chase().x);
+        anim.SetFloat("YVelocity", Chase().y);
 
-    //}
+    }
 
     // Use ???.SendMessage("TakeDamage", int number); to deal damage to enemy.
-   public void TakeDamage()
+    public void TakeDamage()
     {
         health -= 1;
 
@@ -104,8 +104,6 @@ public class EnemyBullyHitter : MonoBehaviour {
 
     void Movement()
     {
-        
-
         transform.position += speed * Chase();
     }
 }
